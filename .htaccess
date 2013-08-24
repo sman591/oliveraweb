@@ -1,0 +1,5 @@
+Redirect 301 /contact /#contact
+Redirect 301 /contact/ /#contact
+Redirect 301 /products/hosting/ /#hosting
+
+ErrorDocument 404 /
