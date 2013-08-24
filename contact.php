@@ -1,7 +1,6 @@
 <?php
 
-$spam = $_POST['username'];
-if ($_POST['username'])
+if ($_POST['username']) // most bots will fill this (hidden by CSS) field
   exit;
 
 $name    = $_POST['name'];
@@ -12,11 +11,11 @@ $message = $_POST['comments'];
 if (trim($name) == '' || trim($email) == '' || trim($message) == '')
   exit;
 
-$content = "From:  " . $name . "\r\n";
+$content =  "From:  " . $name . "\r\n";
 $content .= "Email:  " . $email . "\r\n";
 if (trim($hosting) != '')
   $content .= "Hosting:  " . $hosting . "\r\n";
-$content .= "Message:  \r\n" . $message . "\r\n----";
+$content .=  "Message:  \r\n" . $message . "\r\n----";
 
 mail('stuart@oliveraweb.com', 'Contact From OliveraWeb.com', $content);
 
