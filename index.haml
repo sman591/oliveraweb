@@ -1,12 +1,5 @@
 !!! 5
 
--# paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-
--# <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
--# <!--[if IE 7]>  <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
--# <!--[if IE 8]>  <html class="no-js lt-ie9" lang="en"> <![endif]-->
--# <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
 %html.no-js{:lang => "en"}
 
   %head
@@ -152,9 +145,6 @@
     :javascript
       window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')
 
-    / %script{:src => "js/jquery.ba-hashchange.min.js"}
-    / %script{:src => "js/jquery.fittext.js"}
-
     -# Custom JS
 
     %script{:src => "js/bootstrap-transition.js"}
@@ -164,14 +154,9 @@
     %script{:src => "vendor/bootstrap-modal/js/bootstrap-modalmanager.js"}
     %script{:src => "js/app.js"}
 
-    -#
-    -# Asynchronous Google Analytics
-    -# Change UA-XXXXX-X to be your site's ID
-    -# mathiasbynens.be/notes/async-analytics-snippet
-    -#
 
-    -# :javascript
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    :javascript
+      var _gaq=[['_setAccount','UA-5314102-14'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
