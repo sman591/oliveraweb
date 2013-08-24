@@ -3,9 +3,12 @@ $(document).ready ->
   $('.main').introduce()
   $('a').mouseHovers()
   $('a').pageIntent()
-  $('#contactForm').ajaxForm
+  $('form').ajaxForm
     beforeSubmit: disableSubmits
     success: enableSubmits
+    resetForm: true
+    timeout:   1000
+
   $('.modal').on 'hide', ->
     window.location.hash = '#home'
 
@@ -53,10 +56,15 @@ $.fn.pageIntent = ->
 
 disableSubmits = (formData, jqForm, options) ->
   $(jqForm).find('.error').removeClass('error')
-  $(jqForm).find('button[type=submit], input[type=submit]').attr("disabled", "disabled").text('Please Wait...')
   $(jqForm).find('.response').remove()
+
+  $(jqForm).find('button[type=submit], input[type=submit]').each ->
+    $(this).data('original-text', $(this).text())
+    $(this).attr("disabled", "disabled").text('Please Wait...')
+
   error = false
   emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
   if $(jqForm).find('input[name="name"]').val().trim().length == 0
     $(jqForm).find('input[name="name"]').parents('.control-group').addClass('error')
     error = true
@@ -66,11 +74,14 @@ disableSubmits = (formData, jqForm, options) ->
   if $(jqForm).find('textarea[name="comments"]').val().trim().length == 0
     $(jqForm).find('textarea[name="comments"]').parents('.control-group').addClass('error')
     error = true
+
   if error
-    $(jqForm).find('button[type=submit], input[type=submit]').removeAttr("disabled").text('Send').after('<span class="response"><span class="label label-important">Please fill in the required fields</span></span>')
+    $(jqForm).find('button[type=submit], input[type=submit]').each ->
+      $(this).removeAttr("disabled").text($(this).data('original-text')).after('<span class="response"><span class="label label-important">Please fill in the required fields</span></span>')
     $(jqForm).find('.response').fadeIn(300)
     return false
 
 enableSubmits = (responseText, statusText, xhr, $form) ->
-  $form.find('button[type=submit], input[type=submit]').removeAttr("disabled").text('Send').after('<span class="response"><span class="label label-success">Sent, thank you!</span></span>')
+  $form.find('button[type=submit], input[type=submit]').each ->
+    $(this).removeAttr("disabled").text($(this).data('original-text')).after('<span class="response"><span class="label label-success">Sent, thank you!</span></span>')
   $form.find('.response').fadeIn(300)

@@ -7,9 +7,11 @@
     $('.main').introduce();
     $('a').mouseHovers();
     $('a').pageIntent();
-    $('#contactForm').ajaxForm({
+    $('form').ajaxForm({
       beforeSubmit: disableSubmits,
-      success: enableSubmits
+      success: enableSubmits,
+      resetForm: true,
+      timeout: 1000
     });
     return $('.modal').on('hide', function() {
       return window.location.hash = '#home';
@@ -77,8 +79,11 @@
     var emailFilter, error;
 
     $(jqForm).find('.error').removeClass('error');
-    $(jqForm).find('button[type=submit], input[type=submit]').attr("disabled", "disabled").text('Please Wait...');
     $(jqForm).find('.response').remove();
+    $(jqForm).find('button[type=submit], input[type=submit]').each(function() {
+      $(this).data('original-text', $(this).text());
+      return $(this).attr("disabled", "disabled").text('Please Wait...');
+    });
     error = false;
     emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if ($(jqForm).find('input[name="name"]').val().trim().length === 0) {
@@ -94,14 +99,18 @@
       error = true;
     }
     if (error) {
-      $(jqForm).find('button[type=submit], input[type=submit]').removeAttr("disabled").text('Send').after('<span class="response"><span class="label label-important">Please fill in the required fields</span></span>');
+      $(jqForm).find('button[type=submit], input[type=submit]').each(function() {
+        return $(this).removeAttr("disabled").text($(this).data('original-text')).after('<span class="response"><span class="label label-important">Please fill in the required fields</span></span>');
+      });
       $(jqForm).find('.response').fadeIn(300);
       return false;
     }
   };
 
   enableSubmits = function(responseText, statusText, xhr, $form) {
-    $form.find('button[type=submit], input[type=submit]').removeAttr("disabled").text('Send').after('<span class="response"><span class="label label-success">Sent, thank you!</span></span>');
+    $form.find('button[type=submit], input[type=submit]').each(function() {
+      return $(this).removeAttr("disabled").text($(this).data('original-text')).after('<span class="response"><span class="label label-success">Sent, thank you!</span></span>');
+    });
     return $form.find('.response').fadeIn(300);
   };
 

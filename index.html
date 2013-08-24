@@ -39,7 +39,50 @@
         <h3 id='myModalLabel'>Hosting</h3>
       </div>
       <div class='modal-body'>
-        <p>Coming Soon...</p>
+        <p>Hosting by Olivera Web provides you with reliable, high quality hosting at unbeatable prices.</p>
+        <p>Standard plans (HTML, PHP, MySQL, WordPress, etc) start as low as $5/month, however we can happily build a custom plan to fit your needs.</p>
+        <p>
+          <i>Yearly subscriptions also receive a 16% discount!</i>
+        </p>
+        <p>
+          <strong>Interested? Sign up below:</strong>
+        </p>
+        <form action='contact.php' class='form-horizontal' id='hostingForm' method='post'>
+          <div class='form_user'>
+            <label for='username'>Username</label>
+            <input name='username' type='text'>
+          </div>
+          <div class='control-group'>
+            <label class='control-label' for='hostingName'>Name</label>
+            <div class='controls'>
+              <input id='hostingName' name='name' placeholder='Name' type='text'>
+            </div>
+          </div>
+          <div class='control-group'>
+            <label class='control-label' for='hostingEmail'>Email</label>
+            <div class='controls'>
+              <input id='hostingEmail' name='email' placeholder='Email' type='text'>
+            </div>
+          </div>
+          <div class='control-group'>
+            <label class='control-label' for='hostingType'>Hosting Type</label>
+            <div class='controls'>
+              <select id='hostingType' name='type'>
+                <option value='Standard Hosting'>Standard Hosting</option>
+                <option value='Custom Hosting'>Custom Hosting</option>
+              </select>
+            </div>
+          </div>
+          <div class='control-group'>
+            <label class='control-label' for='hostingComments'>Comments</label>
+            <div class='controls'>
+              <textarea id='hostingName' name='comments' placeholder='Comments' rows='7'></textarea>
+            </div>
+          </div>
+          <div class='form-actions'>
+            <button class='btn btn-primary' type='submit'>Sign Up</button>
+          </div>
+        </form>
       </div>
     </div>
     <div aria-hidden='true' aria-labelledby='myModalLabel' class='modal hide fade' id='contact-modal' role='dialog' tabindex='-1'>

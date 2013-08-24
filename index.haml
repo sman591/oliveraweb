@@ -82,7 +82,41 @@
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
         %h3#myModalLabel Hosting
       .modal-body
-        %p Coming Soon...
+        %p Hosting by Olivera Web provides you with reliable, high quality hosting at unbeatable prices.
+
+        %p Standard plans (HTML, PHP, MySQL, WordPress, etc) start as low as $5/month, however we can happily build a custom plan to fit your needs.
+
+        %p
+          %i Yearly subscriptions also receive a 16% discount!
+
+        %p
+          %strong Interested? Sign up below:
+
+        %form#hostingForm.form-horizontal{:action => "contact.php", :method => "post"}
+          .form_user
+            %label{:for => "username"} Username
+            %input{:type => "text", :name=> "username"}
+          .control-group
+            %label.control-label{:for => "hostingName"} Name
+            .controls
+              %input#hostingName{:type => "text", :name => "name", :placeholder => "Name"}
+          .control-group
+            %label.control-label{:for => "hostingEmail"} Email
+            .controls
+              %input#hostingEmail{:type => "text", :name => "email", :placeholder => "Email"}
+          .control-group
+            %label.control-label{:for => "hostingType"} Hosting Type
+            .controls
+              %select#hostingType{:name => "type"}
+                %option{:value => "Standard Hosting"} Standard Hosting
+                %option{:value => "Custom Hosting"} Custom Hosting
+          .control-group
+            %label.control-label{:for => "hostingComments"} Comments
+            .controls
+              %textarea#hostingName{:name => "comments", :placeholder => "Comments", :rows => "7"}
+          .form-actions
+            %button.btn.btn-primary{:type => "submit"} Sign Up
+
 
     #contact-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
       .modal-header
