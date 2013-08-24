@@ -18,7 +18,7 @@
     %meta{:charset => "utf-8"}
 
     %title Olivera Web
-    %meta{:name => "description", :content => ""}
+    %meta{:name => "description", :content => "Hey there! We’re Olivera Web. We design, build, and host fantastic websites and web apps."}
     -# %meta{:name => "keywords", :content => ""}
     -# %meta{:name => "author", :content => ""}
 
@@ -35,7 +35,7 @@
     -# CSS
     -# ==========================================================================
 
-    %link{:rel => "stylesheet", :href => "http://fonts.googleapis.com/css?family=PT+Sans:400,700|Coustard"}
+    %link{:rel => "stylesheet", :href => "http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic"}
     %link{:rel => "stylesheet", :href => "css/styles.css"}
 
     -# IE Fixes
@@ -60,17 +60,52 @@
 
       .main
         .content
-          %h1 Olivera Web
-          %h2 the latest in web development
+          .logo
+            %h1 Olivera Web
+            %h2 the latest in web development
 
           %p Hey there! We’re <span>Olivera Web</span>. Pleased to meet you.
 
-          %p We <span>design, <span>build</span>, and <span>host</span> fantastic websites and web apps.
+          %p We <span>design</span>, <span>build</span>, and <span>host</span> fantastic websites and web apps.
 
-          %p You can view our <a href="page">portfolio of work</a> and <a href="page">hosting offers</a>,  or <a href="page">contact us</a>.
+          %p You can view our <a href="http://www.behance.net/stuartolivera">portfolio of work</a> and <a href="#hosting">hosting offers</a>,  or <a href="#contact">contact us</a>.
 
-    .stripes
+    #bg-main
       %br/
+
+    #bg-overlay
+      %br/
+
+    #hosting-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h3#myModalLabel Hosting
+      .modal-body
+        %p Coming Soon...
+
+    #contact-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h3#myModalLabel Contact
+      .modal-body
+        %form#contactForm.form-horizontal{:action => "contact.php", :method => "post"}
+          .form_user
+            %label{:for => "username"} Username
+            %input{:type => "text", :name=> "username"}
+          .control-group
+            %label.control-label{:for => "contactName"} Name
+            .controls
+              %input#contactName{:type => "text", :name => "name", :placeholder => "Name"}
+          .control-group
+            %label.control-label{:for => "contactEmail"} Email
+            .controls
+              %input#contactEmail{:type => "text", :name => "email", :placeholder => "Email"}
+          .control-group
+            %label.control-label{:for => "contactComments"} Comments
+            .controls
+              %textarea#contactName{:name => "comments", :placeholder => "Comments", :rows => "7"}
+          .form-actions
+            %button.btn.btn-primary{:type => "submit"} Send
 
 
     -# JS
@@ -78,15 +113,17 @@
 
     -# jQuery
 
-    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"}
+    %script{:src => "//code.jquery.com/jquery-1.10.2.min.js"}
     :javascript
-      window.jQuery || document.write('<script src="js/jquery-1.10.1.min.js"><\/script>')
+      window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')
 
-    %script{:src => "js/jquery.ba-hashchange.min.js"}
-    %script{:src => "js/jquery.fittext.js"}
+    / %script{:src => "js/jquery.ba-hashchange.min.js"}
+    / %script{:src => "js/jquery.fittext.js"}
 
     -# Custom JS
 
+    %script{:src => "js/bootstrap-transition.js"}
+    %script{:src => "js/bootstrap-modal.js"}
     %script{:src => "vendor/javascripts/jquery.form.min.js"}
     %script{:src => "js/app.js"}
 

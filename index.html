@@ -3,10 +3,10 @@
   <head>
     <meta charset='utf-8'>
     <title>Olivera Web</title>
-    <meta content='' name='description'>
+    <meta content='Hey there! We’re Olivera Web. We design, build, and host fantastic websites and web apps.' name='description'>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
     <link href='images/favicon.ico' rel='shortcut icon'>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Coustard' rel='stylesheet'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet'>
     <link href='css/styles.css' rel='stylesheet'>
     <!--[if (lt IE 9) & (!IEMobile)]>
       <script src='//html5shim.googlecode.com/svn/trunk/html5.js'></script>
@@ -16,23 +16,75 @@
     <div class='container'>
       <div class='main'>
         <div class='content'>
-          <h1>Olivera Web</h1>
-          <h2>the latest in web development</h2>
+          <div class='logo'>
+            <h1>Olivera Web</h1>
+            <h2>the latest in web development</h2>
+          </div>
           <p>Hey there! We’re <span>Olivera Web</span>. Pleased to meet you.</p>
-          <p>We <span>design, <span>build</span>, and <span>host</span> fantastic websites and web apps.</p>
-          <p>You can view our <a href="page">portfolio of work</a> and <a href="page">hosting offers</a>,  or <a href="page">contact us</a>.</p>
+          <p>We <span>design</span>, <span>build</span>, and <span>host</span> fantastic websites and web apps.</p>
+          <p>You can view our <a href="http://www.behance.net/stuartolivera">portfolio of work</a> and <a href="#hosting">hosting offers</a>,  or <a href="#contact">contact us</a>.</p>
         </div>
       </div>
     </div>
-    <div class='stripes'>
+    <div id='bg-main'>
       <br>
     </div>
-    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+    <div id='bg-overlay'>
+      <br>
+    </div>
+    <div aria-hidden='true' aria-labelledby='myModalLabel' class='modal hide fade' id='hosting-modal' role='dialog' tabindex='-1'>
+      <div class='modal-header'>
+        <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
+        <h3 id='myModalLabel'>Hosting</h3>
+      </div>
+      <div class='modal-body'>
+        <p>Coming Soon...</p>
+      </div>
+    </div>
+    <div aria-hidden='true' aria-labelledby='myModalLabel' class='modal hide fade' id='contact-modal' role='dialog' tabindex='-1'>
+      <div class='modal-header'>
+        <button aria-hidden='true' class='close' data-dismiss='modal' type='button'>×</button>
+        <h3 id='myModalLabel'>Contact</h3>
+      </div>
+      <div class='modal-body'>
+        <form action='contact.php' class='form-horizontal' id='contactForm' method='post'>
+          <div class='form_user'>
+            <label for='username'>Username</label>
+            <input name='username' type='text'>
+          </div>
+          <div class='control-group'>
+            <label class='control-label' for='contactName'>Name</label>
+            <div class='controls'>
+              <input id='contactName' name='name' placeholder='Name' type='text'>
+            </div>
+          </div>
+          <div class='control-group'>
+            <label class='control-label' for='contactEmail'>Email</label>
+            <div class='controls'>
+              <input id='contactEmail' name='email' placeholder='Email' type='text'>
+            </div>
+          </div>
+          <div class='control-group'>
+            <label class='control-label' for='contactComments'>Comments</label>
+            <div class='controls'>
+              <textarea id='contactName' name='comments' placeholder='Comments' rows='7'></textarea>
+            </div>
+          </div>
+          <div class='form-actions'>
+            <button class='btn btn-primary' type='submit'>Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src='//code.jquery.com/jquery-1.10.2.min.js'></script>
     <script>
-      window.jQuery || document.write('<script src="js/jquery-1.10.1.min.js"><\/script>')
+      window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')
     </script>
-    <script src='js/jquery.ba-hashchange.min.js'></script>
-    <script src='js/jquery.fittext.js'></script>
+    <!-- %script{:src => "js/jquery.ba-hashchange.min.js"} -->
+    <!-- %script{:src => "js/jquery.fittext.js"} -->
+    <script src='js/bootstrap-transition.js'></script>
+    <script src='js/bootstrap-modal.js'></script>
+    <script src='vendor/javascripts/jquery.form.min.js'></script>
     <script src='js/app.js'></script>
   </body>
 </html>

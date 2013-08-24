@@ -1,13 +1,89 @@
+@import compass
+
 // Import all the variables into the main css file.
 @import variables
 
 // I gather this file is a starting point for the project.
 @import bootstrap
-@import bootstrap-responsive
 
 // Include responsive Bootstrap styles
-// @import "bootstrap-responsive";
+@import bootstrap-responsive
+
+#bg-main, #bg-overlay
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+
+#bg-main
+  z-index: -2
+  +background-image(linear-gradient(#00030d, #101632))
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+
+#bg-overlay
+  z-index: -1
+  +background-image(linear-gradient(left, rgba(0, 3, 13, .4), rgba(0, 3, 13, 0) 40%, rgba(0, 3, 13, 0) 40%, rgba(0, 3, 13, .4)))
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+
+a:hover
+  text-decoration: none
+
+.js
+  #bg-main
+    display: none
+  .main
+    display: none
+
+.logo
+  h1
+    margin-top: 160px
+    margin-bottom: 0
+    font-size: 60px
+    line-height: 43px
+    color: $blue
+  h2
+    margin-top: 0
+    margin-bottom: 28px
+    font-size: 22px
+    font-style: italic
+    color: $green
 
 .main
   .content
     text-align: center
+    font-size: 22px
+    line-height: 1.93em
+
+    p
+      span
+        color: $blue
+
+.modal
+  +border-radius(2px)
+  color: black
+
+  h3
+    font-size: 24px
+
+  .form-horizontal, .form-actions
+    margin-bottom: 0
+
+  input[type=text], textarea
+    display: block
+    width: 100%
+    box-sizing: border-box
+    min-height: 34px
+
+.form_user
+  display: none !important
+
+.response
+  display: none
+  margin-left: 9px
