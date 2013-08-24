@@ -1,5 +1,4 @@
 $(document).ready ->
-  $('html').addClass('js').removeClass('no-js')
   $('.main').introduce()
   $('a').mouseHovers()
   $('a').pageIntent()

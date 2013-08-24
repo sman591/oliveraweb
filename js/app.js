@@ -3,7 +3,6 @@
   var disableSubmits, enableSubmits;
 
   $(document).ready(function() {
-    $('html').addClass('js').removeClass('no-js');
     $('.main').introduce();
     $('a').mouseHovers();
     $('a').pageIntent();

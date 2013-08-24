@@ -44,6 +44,9 @@
     /[if (lt IE 9) & (!IEMobile)]
       %script{:src => "//html5shim.googlecode.com/svn/trunk/html5.js"}
 
+    :javascript
+      document.getElementsByTagName("html")[0].className = document.getElementsByTagName("html")[0].className.replace("no-js","js");
+
   %body
 
     -# ==========================================================================
