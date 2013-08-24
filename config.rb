@@ -19,3 +19,4 @@ javascripts_dir = "src/javascripts"
 # line_comments = false
 
 preferred_syntax = :sass
+output_style = :compressed
