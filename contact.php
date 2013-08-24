@@ -15,6 +15,6 @@ $content = "From:  " . $name . "\r\n";
 $content .= "Email:  " . $email . "\r\n";
 $content .= "Message:  \r\n" . $message . "\r\n----";
 
-mail('test@oweb.co', 'Contact From OliveraWeb.com', $content);
+mail('stuart@oliveraweb.com', 'Contact From OliveraWeb.com', $content);
 
 ?>
