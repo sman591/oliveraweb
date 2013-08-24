@@ -63,11 +63,11 @@
 
       href = $(this).attr('href');
       if (href.indexOf('#') !== -1) {
-        page = href.substring(href.indexOf('#') + 1);
+        page = href.substring(href.indexOf('#') + 1).replace("/", "");
         $(this).on('click', function() {
           return $("#" + page + "-modal").modal('show');
         });
-        if (window.location.hash === href) {
+        if (window.location.hash.replace("/", "") === href) {
           return $("#" + page + "-modal").modal('show');
         }
       }
