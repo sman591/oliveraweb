@@ -103,7 +103,8 @@
           .control-group
             %label.control-label{:for => "hostingType"} Hosting Type
             .controls
-              %select#hostingType{:name => "type"}
+              %select#hostingType{:name => "subject"}
+                %option Please choose...
                 %option{:value => "Standard Hosting"} Standard Hosting
                 %option{:value => "Custom Hosting"} Custom Hosting
           .control-group
@@ -131,6 +132,16 @@
             %label.control-label{:for => "contactEmail"} Email
             .controls
               %input#contactEmail{:type => "text", :name => "email", :placeholder => "Email"}
+          .control-group
+            %label.control-label{:for => "contactSubject"} Subject
+            .controls
+              %select#contactSubject{:name => "subject"}
+                %option Please choose...
+                %option{:value => "Requesting Services"} Requesting Services
+                %option{:value => "Requesting Support"} Requesting Support
+                %option{:value => "I Have A Question"} I Have A Question
+                %option{:value => "Just Want To Chat"} Just Want To Chat
+                %option{:value => "Other"} Other
           .control-group
             %label.control-label{:for => "contactComments"} Comments
             .controls

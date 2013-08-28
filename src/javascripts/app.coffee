@@ -70,6 +70,9 @@ disableSubmits = (formData, jqForm, options) ->
   if !emailFilter.test($(jqForm).find('input[name="email"]').val())
     $(jqForm).find('input[name="email"]').parents('.control-group').addClass('error')
     error = true
+  if $(jqForm).find('select[name="subject"]')[0].selectedIndex <= 0
+    $(jqForm).find('select[name="subject"]').parents('.control-group').addClass('error')
+    error = true
   if $(jqForm).find('textarea[name="comments"]').val().trim().length == 0
     $(jqForm).find('textarea[name="comments"]').parents('.control-group').addClass('error')
     error = true

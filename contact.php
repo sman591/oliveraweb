@@ -5,7 +5,7 @@ if ($_POST['username']) // most bots will fill this (hidden by CSS) field
 
 $name    = $_POST['name'];
 $email   = $_POST['email'];
-$hosting = $_POST['type'];
+$subject = $_POST['subject'];
 $message = $_POST['comments'];
 
 if (trim($name) == '' || trim($email) == '' || trim($message) == '')
@@ -13,10 +13,10 @@ if (trim($name) == '' || trim($email) == '' || trim($message) == '')
 
 $content =  "From:  " . $name . "\r\n";
 $content .= "Email:  " . $email . "\r\n";
-if (trim($hosting) != '')
-  $content .= "Hosting:  " . $hosting . "\r\n";
+if (trim($subject) != '')
+  $content .= "Subject:  " . $subject . "\r\n";
 $content .=  "Message:  \r\n" . $message . "\r\n----";
 
-mail('stuart@oliveraweb.com', 'Contact From OliveraWeb.com', $content);
+mail('stuart@oliveraweb.com', 'Contact From ' . $_SERVER['HTTP_HOST'], $content);
 
 ?>
