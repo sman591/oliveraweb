@@ -67,7 +67,7 @@
         $(this).on('click', function() {
           return $("#" + page + "-modal").modal('show');
         });
-        if (window.location.hash === href) {
+        if (window.location.hash.replace(/\W$/g, '') === href) {
           return $("#" + page + "-modal").modal('show');
         }
       }

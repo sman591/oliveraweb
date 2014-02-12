@@ -48,7 +48,7 @@ $.fn.pageIntent = ->
       page = href.substring(href.indexOf('#') + 1)
       $(this).on 'click', ->
         $("##{page}-modal").modal('show')
-      if window.location.hash == href
+      if window.location.hash.replace(/\W$/g, '') == href
         $("##{page}-modal").modal('show')
 
 
